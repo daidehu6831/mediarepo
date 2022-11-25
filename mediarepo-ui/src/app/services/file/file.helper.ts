@@ -8,7 +8,7 @@ export class FileHelper {
      * Opens a dialog to get a download location for the given file
      * @param {File} file
      */
-    public static async getFileDownloadLocation(file: File): Promise<string | undefined> {
+    public static async getFileDownloadLocation(file: File): Promise<string | null> {
         let extension = FileHelper.getExtensionForMime(file.mimeType);
 
         const downloadDirectory = await downloadDir();

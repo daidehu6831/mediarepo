@@ -8,6 +8,9 @@ import {RepositoryMetadata} from "../../models/RepositoryMetadata";
 import {MediarepoApi} from "../../../api/Api";
 import {mapMany, mapNew, mapOptional,} from "../../../api/models/adaptors";
 import {SizeMetadata, SizeType} from "../../../api/api-types/repo";
+import { appWindow } from '@tauri-apps/api/window';
+
+declare const window: any;
 
 @Injectable({
     providedIn: "root"
@@ -182,5 +185,22 @@ export class RepositoryService {
     async loadSelectedRepository() {
         let active_repo = await MediarepoApi.getActiveRepository().then(mapOptional(mapNew(Repository)));
         this.selectedRepository.next(active_repo);
+    }
+
+    get isTauri(): boolean {
+        return !!(window && window.__TAURI__.tauri);
+    }
+    //
+    async listenDrop() {
+        console.log('listenDrop');
+
+        const unlisten = await appWindow.onFileDropEvent((event) => {
+        if (event.payload.type === 'hover') {
+            //
+            // console.log('User hovering', event.payload.paths);
+        } else if (event.payload.type === 'drop') {
+            console.log('User dropped', event.payload.paths);
+        }
+        });
     }
 }

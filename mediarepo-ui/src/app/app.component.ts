@@ -18,6 +18,13 @@ export class AppComponent implements OnInit {
         private logger: LoggingService,
         private repoService: RepositoryService,
     ) {
+        if (this.repoService.isTauri) {
+            console.log('Run in Tauri');
+            this.repoService.listenDrop();
+          } else {
+            this.repoService.listenDrop();
+            console.log('Run in browser');
+          }
     }
 
     async ngOnInit() {
