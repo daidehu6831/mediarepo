@@ -5,6 +5,7 @@ import {AddFileOptions} from "../../../../../models/AddFileOptions";
 import {DialogFilter} from "@tauri-apps/api/dialog";
 import {FileOsMetadata} from "../../../../../../api/api-types/files";
 import {ImportTabState} from "../../../../../models/state/ImportTabState";
+import {RepositoryService} from "../../../../../services/repository/repository.service";
 
 const IMAGE_EXTENSIONS = ["png", "jpg", "jpeg", "webp", "bmp", "gif"];
 const VIDEO_EXTENSIONS = ["mp4", "mkv", "wmv", "avi", "webm"];
@@ -43,7 +44,8 @@ export class FilesystemImportComponent implements OnInit {
     constructor(
         private changeDetector: ChangeDetectorRef,
         private errorBroker: LoggingService,
-        private importService: ImportService
+        private importService: ImportService,
+        private repositoryService:  RepositoryService
     ) {
     }
 
@@ -63,6 +65,17 @@ export class FilesystemImportComponent implements OnInit {
             this.importingProgress = prog;
             this.changeDetector.markForCheck();
         });
+        // onFileDrop event subscribe
+        this.repositoryService.onFileDrop.subscribe(paths => {
+            console.log("onFileDrop subscribe",paths);
+            this.setSelectedPaths(paths).then(
+                ()=>{
+                    this.import();
+                    this.errorBroker.info(paths.toString());
+                }
+            );
+
+          });
     }
 
     public async setSelectedPaths(paths: string[]) {
@@ -87,6 +100,8 @@ export class FilesystemImportComponent implements OnInit {
 
         for (const file of this.files) {
             try {
+                console.log("import",file)
+                console.log("import",this.importOptions)
                 const resultFile = await this.importService.addLocalFile(
                     file,
                     this.importOptions

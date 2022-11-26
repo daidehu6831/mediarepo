@@ -1,4 +1,4 @@
-import {Injectable} from "@angular/core";
+import {Injectable, Output, EventEmitter } from "@angular/core";
 import {Repository} from "../../../api/models/Repository";
 import {BehaviorSubject} from "rxjs";
 import {listen} from "@tauri-apps/api/event";
@@ -20,6 +20,8 @@ export class RepositoryService {
     public selectedRepository = new BehaviorSubject<Repository | undefined>(
         undefined);
     public metadata = new BehaviorSubject<RepositoryMetadata | undefined>(undefined);
+
+    @Output() onFileDrop: EventEmitter<string[]> = new EventEmitter();
 
     constructor(private errorBroker: LoggingService) {
         this.registerListener().catch(err => console.error(err));
@@ -200,6 +202,7 @@ export class RepositoryService {
             // console.log('User hovering', event.payload.paths);
         } else if (event.payload.type === 'drop') {
             console.log('User dropped', event.payload.paths);
+            this.onFileDrop.emit(event.payload.paths)
         }
         });
     }

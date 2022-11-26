@@ -1,47 +1,47 @@
 <mat-toolbar>
     <span class="repository-name">{{repository.name}}</span>
-    <button (click)="this.closeRepository()" class="button-close-repository" color="primary" mat-flat-button>Close
+    <button (click)="this.closeRepository()" class="button-close-repository" color="primary" mat-flat-button>{{ "close-btn" | translate }}
     </button>
 </mat-toolbar>
 <div class="details-content" fxLayout="row">
     <div class="repository-metadata" fxFlex="50%">
         <div class="stats-container">
-            <h1>Stats</h1>
-            <app-metadata-entry *ngIf="repository.path" attributeName="Path">{{repository.path}}</app-metadata-entry>
+            <h1>{{ 'core.repository-tab.details-view-page-title' | translate }}</h1>
+            <app-metadata-entry *ngIf="repository.path" attributeName="{{ 'core.repository-tab.details-view-path' | translate }}">{{repository.path}}</app-metadata-entry>
             <app-metadata-entry *ngIf="repository.address"
-                                attributeName="Address">{{repository.address}}</app-metadata-entry>
-            <app-metadata-entry attributeName="File Count">
+                                attributeName="{{ 'core.repository-tab.details-view-address' | translate }}">{{repository.address}}</app-metadata-entry>
+            <app-metadata-entry attributeName="{{ 'core.repository-tab.details-view-file-count' | translate }}">
                 <mat-progress-bar *ngIf="!metadata"></mat-progress-bar>
                 {{metadata ? metadata!.file_count.toString() : ''}}
             </app-metadata-entry>
-            <app-metadata-entry attributeName="Tag Count">
+            <app-metadata-entry attributeName="{{ 'core.repository-tab.details-view-tag-count' | translate }}">
                 <mat-progress-bar *ngIf="!metadata"></mat-progress-bar>
                 {{metadata ? metadata!.tag_count.toString() : ''}}
             </app-metadata-entry>
-            <app-metadata-entry attributeName="Namespace Count">
+            <app-metadata-entry attributeName="{{ 'core.repository-tab.details-view-namespace-count' | translate }}">
                 <mat-progress-bar *ngIf="!metadata"></mat-progress-bar>
                 {{metadata ? metadata!.namespace_count.toString() : ''}}
             </app-metadata-entry>
-            <app-metadata-entry attributeName="Mapping Count">
+            <app-metadata-entry attributeName="{{ 'core.repository-tab.details-view-mapping-count' | translate }}">
                 <mat-progress-bar *ngIf="!metadata"></mat-progress-bar>
                 {{metadata ? metadata!.mapping_count.toString() : ''}}
             </app-metadata-entry>
-            <app-metadata-entry attributeName="Total Size">
+            <app-metadata-entry attributeName="{{ 'core.repository-tab.details-view-total-size' | translate }}">
                 <mat-progress-bar *ngIf="(this.totalSize | async) === undefined"
                                   mode="indeterminate"></mat-progress-bar>
                 {{this.totalSize | async}}
             </app-metadata-entry>
-            <app-metadata-entry attributeName="File Folder Size">
+            <app-metadata-entry attributeName="{{ 'core.repository-tab.details-view-file-folder-size' | translate }}">
                 <mat-progress-bar *ngIf="(this.fileFolderSize | async) === undefined"
                                   mode="indeterminate"></mat-progress-bar>
                 {{this.fileFolderSize | async}}
             </app-metadata-entry>
-            <app-metadata-entry attributeName="Thumbnail Folder Size">
+            <app-metadata-entry attributeName="{{ 'core.repository-tab.details-view-thumbnail-folder-size' | translate }}">
                 <mat-progress-bar *ngIf="(this.thumbFolderSize | async) === undefined"
                                   mode="indeterminate"></mat-progress-bar>
                 {{this.thumbFolderSize | async}}
             </app-metadata-entry>
-            <app-metadata-entry attributeName="Database File Size">
+            <app-metadata-entry attributeName="{{ 'core.repository-tab.details-view-database-file-size' | translate }}">
                 <mat-progress-bar *ngIf="(this.databaseFileSize | async) === undefined"
                                   mode="indeterminate"></mat-progress-bar>
                 {{this.databaseFileSize | async}}
@@ -53,7 +53,7 @@
                        [labels]="this.chartLabels"
                        chartType="doughnut"
                        class="size-chart"
-                       title="Sizes"></app-chart>
+                       title="{{ 'core.repository-tab.details-view-size-chart-title' | translate }}"></app-chart>
         </div>
     </div>
     <div fxFlex="50%">

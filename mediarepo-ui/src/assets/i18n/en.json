@@ -1,0 +1,32 @@
+{
+    "with param": "sample {{value}}",
+
+    "core.new-tab": "New Tab",
+    "core.new-files-tab-btn": "Files",
+    "core.new-import-tab-btn":"Import",
+    "core.new-tab-text": "What kind of tab do you want to open?",
+    "Repository": "Repository",
+    "Repositories": "Repositories",
+    "Files": "Files",
+    "Import": "Import",
+
+    "core.repository-tab.repository-overview-page-title": "All Repositories",
+    "core.repository-tab.add-repository-btn": "Add Repository",
+    "core.repository-tab.about-btn": "About",
+    "core.repository-tab.add-repository-prompt": "There are no repositories yet. You can create a repository or add an existing one.",
+    "close-btn": "Close",
+
+    "core.repository-tab.details-view-page-title": "Stats",
+    "core.repository-tab.details-view-path": "Path",
+    "core.repository-tab.details-view-address": "Address",
+    "core.repository-tab.details-view-file-count": "File Count",
+    "core.repository-tab.details-view-tag-count": "Tag Count",
+    "core.repository-tab.details-view-mapping-count": "Mapping Count",
+    "core.repository-tab.details-view-namespace-count": "Namespace Count",
+    "core.repository-tab.details-view-total-size": "Total Size",
+    "core.repository-tab.details-view-file-folder-size": "File Folder Size",
+    "core.repository-tab.details-view-thumbnail-folder-size": "Thumbnail Folder Size",
+    "core.repository-tab.details-view-database-file-size": "Database File Size",
+    "core.repository-tab.details-view-size-chart-title": "Sizes"
+
+}

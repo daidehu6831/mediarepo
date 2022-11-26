@@ -1,13 +1,13 @@
 <div id="content">
     <mat-tab-group #tabGroup (selectedTabChange)="this.onTabSelectionChange($event)" animationDuration="0"
                    class="main-tab-group">
-        <mat-tab [label]="this.selectedRepository? 'Repository' : 'Repositories'">
+        <mat-tab [label]="(this.selectedRepository? 'Repository' : 'Repositories') | translate">
             <app-repositories-tab></app-repositories-tab>
         </mat-tab>
         <mat-tab *ngFor="let tab of tabs; trackBy: trackByTabId">
             <ng-template mat-tab-label>
                 <div (click)="this.onMouseClickTabLabel(tab, $event)" class="tab-label-div">
-                    {{tab.category}}
+                    {{tab.category | translate }}
                     <button (click)="this.closeTab(tab)" class="close-tab-button" mat-icon-button>
                         <ng-icon name="mat-close"></ng-icon>
                     </button>
@@ -18,7 +18,7 @@
                 <app-import-tab *ngIf="tab.category === 'Import'" [state]="tab.importTab()"></app-import-tab>
             </ng-template>
         </mat-tab>
-        <mat-tab *ngIf="this.newTab" label="New Tab">
+        <mat-tab *ngIf="this.newTab" label="{{'core.new-tab' | translate }}">
             <app-empty-tab (tabCategorySelect)="this.addTab($event)"></app-empty-tab>
         </mat-tab>
         <mat-tab *ngIf="this.selectedRepository" disabled>

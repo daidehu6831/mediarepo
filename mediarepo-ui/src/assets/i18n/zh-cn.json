@@ -1,0 +1,32 @@
+{
+    "with param": "示例 {{value}}",
+
+    "core.new-tab": "新标签",
+    "core.new-files-tab-btn": "文件",
+    "core.new-import-tab-btn":"导入",
+    "core.new-tab-text": "新建何种标签页?",
+    "Repository": "资料库",
+    "Repositories": "资料库概览",
+    "Files": "文件",
+    "Import": "导入",
+
+    "core.repository-tab.repository-overview-page-title": "所有资料库",
+    "core.repository-tab.add-repository-btn": "新建资料库",
+    "core.repository-tab.about-btn": "关于",
+    "core.repository-tab.add-repository-prompt": "没有任何资料库。请新建、或添加已存在的资料。",
+    "close-btn": "关闭",
+
+    "core.repository-tab.details-view-page-title": "统计数据",
+    "core.repository-tab.details-view-path": "位置",
+    "core.repository-tab.details-view-address": "地址",
+    "core.repository-tab.details-view-file-count": "文件数",
+    "core.repository-tab.details-view-tag-count": "标签数",
+    "core.repository-tab.details-view-mapping-count": "Mapping数",
+    "core.repository-tab.details-view-namespace-count": "Namespace 数",
+    "core.repository-tab.details-view-total-size": "总大小",
+    "core.repository-tab.details-view-file-folder-size": "文件大小",
+    "core.repository-tab.details-view-thumbnail-folder-size": "缩略图大小",
+    "core.repository-tab.details-view-database-file-size": "数据库大小",
+    "core.repository-tab.details-view-size-chart-title": "容量"
+
+}

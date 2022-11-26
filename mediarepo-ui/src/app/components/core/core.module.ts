@@ -1,5 +1,7 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
+import { TranslateModule } from '@ngx-translate/core';
+
 import {CoreComponent} from "./core.component";
 import {RepositoriesTabComponent} from "./repositories-tab/repositories-tab.component";
 import {FilesTabComponent} from "./files-tab/files-tab.component";
@@ -89,7 +91,8 @@ import {AboutDialogComponent} from "./repositories-tab/repository-overview/about
         MatInputModule,
         TagModule,
         RepositoryModule,
-        MatToolbarModule
+        MatToolbarModule,
+        TranslateModule
     ]
 })
 export class CoreModule {

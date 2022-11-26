@@ -1,6 +1,8 @@
 import {Component, OnInit} from "@angular/core";
-import {RepositoryService} from "./services/repository/repository.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import { TranslateService } from '@ngx-translate/core';
+
+import {RepositoryService} from "./services/repository/repository.service";
 import {LoggingService} from "./services/logging/logging.service";
 import {LogEntry, LogLevel} from "./services/logging/LogEntry";
 import {environment} from "../environments/environment";
@@ -17,7 +19,9 @@ export class AppComponent implements OnInit {
         private snackBar: MatSnackBar,
         private logger: LoggingService,
         private repoService: RepositoryService,
+        private translateService: TranslateService,
     ) {
+
         if (this.repoService.isTauri) {
             console.log('Run in Tauri');
             this.repoService.listenDrop();

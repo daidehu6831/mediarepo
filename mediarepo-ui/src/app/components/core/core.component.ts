@@ -1,7 +1,9 @@
 import {Component, ViewChild} from "@angular/core";
+import {MatTabChangeEvent, MatTabGroup} from "@angular/material/tabs";
+import { TranslateService } from '@ngx-translate/core';
+
 import {Repository} from "../../../api/models/Repository";
 import {RepositoryService} from "../../services/repository/repository.service";
-import {MatTabChangeEvent, MatTabGroup} from "@angular/material/tabs";
 import {TagService} from "../../services/tag/tag.service";
 import {TabService} from "../../services/tab/tab.service";
 import {TabCategory} from "../../models/state/TabCategory";
@@ -27,7 +29,8 @@ export class CoreComponent {
         private tabService: TabService,
         private repoService: RepositoryService,
         private stateService: StateService,
-        private tagService: TagService
+        private tagService: TagService,
+        private translateService: TranslateService,
     ) {
         this.selectedRepository = this.repoService.selectedRepository.getValue();
 
