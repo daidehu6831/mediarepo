@@ -233,6 +233,7 @@ pub async fn set_frontend_state(api_state: ApiAccess<'_>, state: String) -> Plug
 
 async fn get_repo_address(path: String) -> PluginResult<String> {
     let tcp_path = PathBuf::from(&path).join("repo.tcp");
+    #[cfg(unix)]
     let socket_path = PathBuf::from(&path).join("repo.sock");
 
     let mut address = String::from("127.0.0.1:2400");
