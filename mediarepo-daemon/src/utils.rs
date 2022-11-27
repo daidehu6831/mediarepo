@@ -1,4 +1,4 @@
-use std::path::Path;
+use std::path::{Path, PathBuf};
 
 use tokio::fs;
 
@@ -25,7 +25,7 @@ pub async fn get_repo(root_path: &Path, path_settings: &PathSettings) -> RepoRes
     Repo::connect(
         format!(
             "sqlite://{}",
-            path_settings.db_file_path(root_path).to_string_lossy()
+            convert_path(path_settings.db_file_path(root_path))
         ),
         path_settings.files_dir(root_path),
         path_settings.thumbs_dir(root_path),
@@ -51,4 +51,18 @@ pub async fn create_paths_for_repo(root: &Path, settings: &PathSettings) -> Repo
     }
 
     Ok(())
+}
+
+// sqlite uri fix
+// https://www.sqlite.org/c3ref/open.html#urifilenameexamples
+// wrong: "\\\\?\\D:\\repo\\dev-demo\\db\\repo.db"
+// right: "/D:/repo、dev-demo/db/repo.db"
+pub fn convert_path(path: PathBuf) -> String{
+    let path_str = path.to_string_lossy();
+    if cfg!(target_os = "windows") {
+        let temp = String::from(path_str.replace("\\", "/"));
+        String::from(temp.replace("//?", ""))
+    } else {
+        String::from(path_str)
+    }
 }
