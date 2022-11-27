@@ -14,7 +14,7 @@ import {MatFolder} from "@ng-icons/material-icons/baseline";
 import {RepositoryMaintenanceComponent} from "./repository-maintenance/repository-maintenance.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -38,7 +38,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
         ReactiveFormsModule,
         NgIconsModule.withIcons({ MatFolder }),
         MatCardModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        TranslateModule
     ]
 })
 export class RepositoryModule {

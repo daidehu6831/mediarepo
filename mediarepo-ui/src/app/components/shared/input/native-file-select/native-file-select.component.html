@@ -1,7 +1,7 @@
 <div class="file-select-inner" fxLayout="row">
 
     <mat-form-field appearance="fill">
-        <mat-label>{{label}}</mat-label>
+        <mat-label>{{ (label?label:'') | translate}}</mat-label>
         <input #filesInput (change)="this.setFiles(filesInput.value)" [value]="files.join(', ')" class="file-input"
                matInput>
 

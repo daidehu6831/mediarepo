@@ -1,7 +1,7 @@
 <app-busy-indicator [blurBackground]="true" class="file-edit-inner" fxLayout="column">
     <div class="file-edit-header" fxFlex="130px">
-        <h1>Edit Tags</h1>
-        <h3>{{tags.length}} Tags</h3>
+        <h1>{{'shared.file-tags-tab-label' | translate}}</h1>
+        <h3>{{tags.length}} {{'shared.file-search-sort-result-tags' | translate}}</h3>
         <mat-divider></mat-divider>
     </div>
     <div class="tag-edit-list" fxFlex fxFlexAlign="start" fxFlexFill>
@@ -26,11 +26,11 @@
             </button>
         </div>
         <mat-form-field appearance="fill" class="form-field-mode">
-            <mat-label>Mode</mat-label>
+            <mat-label>{{'shared.file-tags-edit-mode' | translate}}</mat-label>
             <mat-select [(value)]="editMode">
-                <mat-option value="Toggle">Toggle</mat-option>
-                <mat-option value="Add">Add</mat-option>
-                <mat-option value="Remove">Remove</mat-option>
+                <mat-option value="Toggle">{{'shared.file-tags-edit-mode-toggle' | translate}}</mat-option>
+                <mat-option value="Add">{{'shared.file-tags-edit-mode-add' | translate}}</mat-option>
+                <mat-option value="Remove">{{'shared.file-tags-edit-mode-remove' | translate}}</mat-option>
             </mat-select>
         </mat-form-field>
     </div>

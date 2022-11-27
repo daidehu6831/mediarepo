@@ -1,16 +1,16 @@
 <h1 mat-dialog-title>
-    Sort Entries
+    {{'dlg.file-search-sort.title' | translate }}
 </h1>
 <div mat-dialog-content>
     <mat-form-field *ngIf="this.availablePresets.length > 0" class="preset-selection">
-        <mat-label>Preset</mat-label>
+        <mat-label>{{'dlg.file-search-sort.sort-preset' | translate }}</mat-label>
         <mat-select (selectionChange)="this.selectPreset($event.value)" [value]="this.previousId">
             <mat-option [value]="-1"></mat-option>
             <mat-option *ngFor="let preset of this.availablePresets"
                         [matTooltipShowDelay]="1000"
-                        [matTooltip]="preset.toString()"
+                        [matTooltip]="preset.toString() | translate"
                         [value]="preset.id">
-                {{preset.toString()}}
+                {{preset.toString() | translate }}
             </mat-option>
         </mat-select>
     </mat-form-field>
@@ -21,20 +21,20 @@
                 <ng-icon name="mat-drag-handle"></ng-icon>
             </div>
             <mat-form-field>
-                <mat-label>Key</mat-label>
+                <mat-label>{{'dlg.file-search-sort.sort-key' | translate }}</mat-label>
                 <mat-select [(value)]="sortKey.sortType" required>
-                    <mat-option value="Namespace">Namespace</mat-option>
-                    <mat-option value="FileName">File Name</mat-option>
-                    <mat-option value="FileSize">File Size</mat-option>
-                    <mat-option value="FileImportedTime">Time Imported</mat-option>
-                    <mat-option value="FileCreatedTime">Time Created</mat-option>
-                    <mat-option value="FileChangeTime">Time Changed</mat-option>
-                    <mat-option value="FileType">File Type</mat-option>
-                    <mat-option value="NumTags">Number of Tags</mat-option>
+                    <mat-option value="Namespace">{{'dlg.file-search-sort.sort-key-type-namespace' | translate }}</mat-option>
+                    <mat-option value="FileName">{{'dlg.file-search-sort.sort-key-type-file-name' | translate }}</mat-option>
+                    <mat-option value="FileSize">{{'dlg.file-search-sort.sort-key-type-file-size' | translate }}</mat-option>
+                    <mat-option value="FileImportedTime">{{'dlg.file-search-sort.sort-key-type-time-imported' | translate }}</mat-option>
+                    <mat-option value="FileCreatedTime">{{'dlg.file-search-sort.sort-key-type-time-created' | translate }}</mat-option>
+                    <mat-option value="FileChangeTime">{{'dlg.file-search-sort.sort-key-type-time-changed' | translate }}</mat-option>
+                    <mat-option value="FileType">{{'dlg.file-search-sort.sort-key-type-file-type' | translate }}</mat-option>
+                    <mat-option value="NumTags">{{'dlg.file-search-sort.sort-key-type-number-tags' | translate }}</mat-option>
                 </mat-select>
             </mat-form-field>
             <mat-form-field *ngIf="sortKey.sortType === 'Namespace'">
-                <mat-label>Namespace Name</mat-label>
+                <mat-label>{{'dlg.file-search-sort.sort-namespace' | translate }}</mat-label>
                 <input #namespaceInput
                        (change)="this.handlePresetChange(); sortKey.namespaceName = namespaceInput.value"
                        (focus)="this.updateAutocompleteSuggestions(namespaceInput.value)"
@@ -52,10 +52,10 @@
             </mat-form-field>
             <div *ngIf="sortKey.sortType !== 'Namespace'" class="filler"></div>
             <mat-form-field>
-                <mat-label>Direction</mat-label>
+                <mat-label>{{'dlg.file-search-sort.sort-direction' | translate }}</mat-label>
                 <mat-select (selectionChange)="this.handlePresetChange()" [(value)]="sortKey.sortDirection" required>
-                    <mat-option value="Ascending">Ascending</mat-option>
-                    <mat-option value="Descending">Descending</mat-option>
+                    <mat-option value="Ascending">{{'dlg.file-search-sort.sort-direction-ascending' | translate }}</mat-option>
+                    <mat-option value="Descending">{{'dlg.file-search-sort.sort-direction-descending' | translate }}</mat-option>
                 </mat-select>
             </mat-form-field>
             <button (click)="addNewSortKey()"
@@ -73,21 +73,21 @@
 </div>
 <div class="dialog-actions" mat-dialog-actions>
     <button (click)="deletePreset()" *ngIf="this.previousId >= 0" class="button-left" color="warn" mat-stroked-button>
-        Delete
+        {{'delete-btn' | translate }}
     </button>
     <button (click)="saveNewPreset()"
             *ngIf="this.sortingPreset.sortKeys.length > 0"
             class="button-left"
             color="accent"
-            mat-stroked-button>Save new
+            mat-stroked-button>{{'save-new-btn' | translate }}
     </button>
     <button (click)="savePreset()"
             *ngIf="this.sortingPreset.sortKeys.length > 0 && this.previousId >= 0"
             class="button-left"
             color="accent"
-            mat-flat-button>Save
+            mat-flat-button>{{'save-btn' | translate }}
     </button>
 
-    <button (click)="cancelSort()" color="accent" mat-stroked-button>Cancel</button>
-    <button (click)="confirmSort()" color="primary" mat-flat-button>Sort</button>
+    <button (click)="cancelSort()" color="accent" mat-stroked-button>{{'cancel-btn' | translate }}</button>
+    <button (click)="confirmSort()" color="primary" mat-flat-button>{{'sort-btn' | translate }}</button>
 </div>

@@ -1,13 +1,13 @@
 <div class="import-tab-inner">
     <mat-tab-group headerPosition="below">
-        <mat-tab label="Import">
+        <mat-tab label="{{'Import' | translate}}">
             <app-file-import
                 [state]="this.state"></app-file-import>
         </mat-tab>
-        <mat-tab *ngIf="selectedFiles.length > 0" label="Edit Tags">
+        <mat-tab *ngIf="selectedFiles.length > 0" label="{{'shared.file-tags-tab-label' | translate}}">
             <app-tag-edit [files]="selectedFiles"></app-tag-edit>
         </mat-tab>
-        <mat-tab *ngIf="selectedFiles.length === 1" label="File Metadata">
+        <mat-tab *ngIf="selectedFiles.length === 1" label="{{'shared.file-metadata-tab-label' | translate}}">">
             <app-file-metadata [file]="selectedFiles[0]"></app-file-metadata>
         </mat-tab>
     </mat-tab-group>

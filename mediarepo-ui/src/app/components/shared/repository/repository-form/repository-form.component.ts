@@ -25,7 +25,7 @@ export class RepositoryFormComponent implements OnInit {
         address: new FormControl(this.address, [this.validateAddress])
     });
 
-    onlineStatus = "Unknown";
+    onlineStatus = "shared.online-status-unknown";
     localRepoExists = false;
 
     repositories: Repository[] = [];
@@ -46,11 +46,11 @@ export class RepositoryFormComponent implements OnInit {
     }
 
     public async checkRepositoryStatus() {
-        this.onlineStatus = "Checking...";
+        this.onlineStatus = "shared.online-status-checking";
         const address = this.formGroup.value.address;
         const running = await this.repoService.checkDaemonRunning(address);
         console.log(running);
-        this.onlineStatus = running ? "Online" : "Offline";
+        this.onlineStatus = running ? "shared.online-status-online" : "shared.online-status-offline";
     }
 
     public async checkLocalRepoExists() {

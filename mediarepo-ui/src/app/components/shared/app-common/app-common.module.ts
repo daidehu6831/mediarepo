@@ -28,7 +28,7 @@ import {FormatBytesPipe} from "./pipes/format-bytes.pipe";
 import {ExternalUrlComponent} from "./external-url/external-url.component";
 import {ChartComponent} from "./chart/chart.component";
 import {ChartModule} from "primeng/chart";
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -79,7 +79,8 @@ import {ChartModule} from "primeng/chart";
         MatSidenavModule,
         FlexLayoutModule,
         MatRippleModule,
-        ChartModule
+        ChartModule,
+        TranslateModule
     ]
 })
 export class AppCommonModule {

@@ -1,6 +1,6 @@
 <div class="file-metadata-inner">
     <div class="file-metadata-header">
-        <h1>File Metadata</h1>
+        <h1>{{'shared.file-metadata-tab-label' | translate}}</h1>
         <mat-divider></mat-divider>
     </div>
     <app-busy-indicator [blurBackground]="true" [busy]="this.loading" [darkenBackground]="false">
@@ -9,18 +9,18 @@
                 <app-editable-metadata-entry (valueChangeEvent)="this.saveFileName($event)"
                                              *ngIf="fileMetadata"
                                              [value]="fileMetadata.name ?? ''"
-                                             attributeName="Name"></app-editable-metadata-entry>
-                <app-metadata-entry attributeName="Content Descriptor (CD)">{{file.cd}}</app-metadata-entry>
-                <app-metadata-entry attributeName="Mime Type">{{file.mimeType}}</app-metadata-entry>
+                                             attributeName="{{'dlg.file-search-sort.sort-key-type-file-name' | translate}}"></app-editable-metadata-entry>
+                <app-metadata-entry attributeName="{{'shared.file-metadata-content-descriptor' | translate}}">{{file.cd}}</app-metadata-entry>
+                <app-metadata-entry attributeName="{{'shared.file-metadata-mime-type' | translate}}">{{file.mimeType}}</app-metadata-entry>
                 <ng-container *ngIf="fileMetadata">
                     <app-metadata-entry
-                        attributeName="Size">{{fileMetadata.size | formatBytes}}</app-metadata-entry>
+                        attributeName="{{'dlg.file-search-sort.sort-key-type-file-size' | translate}}">{{fileMetadata.size | formatBytes}}</app-metadata-entry>
                     <app-metadata-entry
-                        attributeName="Imported at">{{fileMetadata.import_time | date: 'dd.MM.yy HH:mm:ss' }}</app-metadata-entry>
+                        attributeName="{{'dlg.file-search-sort.sort-key-type-time-imported' | translate}}">{{fileMetadata.import_time | date: 'dd.MM.yy HH:mm:ss' }}</app-metadata-entry>
                     <app-metadata-entry
-                        attributeName="Created at">{{fileMetadata.creation_time | date: 'dd.MM.yy HH:mm:ss'}}</app-metadata-entry>
+                        attributeName="{{'dlg.file-search-sort.sort-key-type-time-created' | translate}}">{{fileMetadata.creation_time | date: 'dd.MM.yy HH:mm:ss'}}</app-metadata-entry>
                     <app-metadata-entry
-                        attributeName="Changed at">{{fileMetadata.change_time | date: 'dd.MM.yy HH:mm:ss'}}</app-metadata-entry>
+                        attributeName="{{'dlg.file-search-sort.sort-key-type-time-changed' | translate}}">{{fileMetadata.change_time | date: 'dd.MM.yy HH:mm:ss'}}</app-metadata-entry>
                 </ng-container>
             </div>
         </div>

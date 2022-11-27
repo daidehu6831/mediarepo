@@ -65,10 +65,10 @@ export class NativeFileSelectComponent implements OnInit, OnChanges {
     private setLabel(): void {
         switch (this.mode) {
             case "files":
-                this.label = "Select Files";
+                this.label = "shared.file-import-select-files";
                 break;
             case "folders":
-                this.label = "Select a folder";
+                this.label = "shared.file-import-select-a-folder";
                 break;
         }
     }

@@ -54,7 +54,7 @@ import {GetPropertyQueryPipe} from "./file-search/filter-pipes/get-property-quer
 import {SortButtonComponent} from "./file-search/sort-button/sort-button.component";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {SortPresetItemComponent} from "./file-search/sort-preset-item/sort-preset-item.component";
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -114,6 +114,7 @@ import {SortPresetItemComponent} from "./file-search/sort-preset-item/sort-prese
         ReactiveFormsModule,
         MatAutocompleteModule,
         MatTooltipModule,
+        TranslateModule
     ]
 })
 export class SidebarModule {

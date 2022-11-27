@@ -1,26 +1,24 @@
 <mat-card>
     <mat-card-header>
         <mat-card-title>
-            <h1>Maintenance</h1></mat-card-title>
+            <h1>{{'shared.repository.maintenance-card-title' | translate }}</h1></mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <div class="button-list">
-            <button (click)="this.runJob('CheckIntegrity', false)" color="primary" mat-flat-button>Check Integrity
+            <button (click)="this.runJob('CheckIntegrity', false)" color="primary" mat-flat-button>{{'shared.repository.maintenance-check-integrity-btn' | translate }}
             </button>
-            <button (click)="this.runJob('Vacuum', false)" color="primary" mat-flat-button>Optimize Database</button>
+            <button (click)="this.runJob('Vacuum', false)" color="primary" mat-flat-button>{{'shared.repository.maintenance-optimize-database-btn' | translate }}</button>
             <button (click)="this.runJob('GenerateThumbnails', true)"
                     [disabled]="this.jobState.GenerateThumbnails"
                     color="primary"
-                    mat-flat-button>Generate missing
-                Thumbnails
+                    mat-flat-button>{{'shared.repository.maintenance-generate-missing-thumbnails-btn' | translate }}
                 <mat-progress-bar *ngIf="this.jobState.GenerateThumbnails" color="primary"
                                   mode="indeterminate"></mat-progress-bar>
             </button>
             <button (click)="this.runJob('CalculateSizes', true)"
                     [disabled]="this.jobState.CalculateSizes"
                     color="primary"
-                    mat-flat-button>Recalculate Repository
-                Size
+                    mat-flat-button>{{'shared.repository.maintenance-recalculate-repository-size-btn' | translate }}
                 <mat-progress-bar *ngIf="this.jobState.CalculateSizes" color="primary"
                                   mode="indeterminate"></mat-progress-bar>
             </button>

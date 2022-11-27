@@ -1,8 +1,8 @@
 <mat-form-field>
-    <mat-label>Selection Type</mat-label>
+    <mat-label>{{'shared.file-import-selection-type' | translate}}</mat-label>
     <mat-select #selectionType value="files">
-        <mat-option value="folders">Folders</mat-option>
-        <mat-option value="files">Files</mat-option>
+        <mat-option value="folders">{{'Folders' | translate}}</mat-option>
+        <mat-option value="files">{{'Files' | translate}}</mat-option>
     </mat-select>
 </mat-form-field>
 <app-native-file-select (fileSelect)="this.setSelectedPaths($event)" [filters]="this.filters"
@@ -16,12 +16,12 @@
 
 <section class="binary-import-options">
     <mat-checkbox (change)="this.importOptions.read_tags_from_txt = $event.checked"
-                  [checked]="this.importOptions.read_tags_from_txt">Import tags from
-        adjacent .txt tag files
+                  [checked]="this.importOptions.read_tags_from_txt">
+        {{'shared.file-import-option-tags-from-file' | translate}}
     </mat-checkbox>
     <mat-checkbox (change)="this.importOptions.delete_after_import = $event.checked"
                   [checked]="this.importOptions.delete_after_import" color="warn">
-        Delete files from original location after import
+        {{'shared.file-import-option-delete-original-after-import' | translate}}
     </mat-checkbox>
 </section>
 

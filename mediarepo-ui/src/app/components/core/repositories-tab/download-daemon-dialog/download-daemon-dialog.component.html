@@ -1,13 +1,13 @@
 <h1 mat-dialog-title>
-    Download daemon
+    {{'core.repositories-tab.download-daemon-dialog-title' | translate }}
 </h1>
 <div mat-dialog-content>
-    No daemon could be found on the system. Please download and install a daemon executable.
+    {{'core.repositories-tab.download-daemon-dialog-content' | translate }}
     <br>
-    <button (click)="this.onClickDownloadDaemon()" class="download-button" color="primary" mat-flat-button>Download
+    <button (click)="this.onClickDownloadDaemon()" class="download-button" color="primary" mat-flat-button>{{'download-btn' | translate}}
     </button>
 </div>
 <div class="download-dialog-actions" mat-dialog-actions>
-    <button (click)="closeDialog(false)" color="accent" mat-stroked-button>Cancel</button>
-    <button (click)="closeDialog(true)" color="primary" mat-flat-button>Ok</button>
+    <button (click)="closeDialog(false)" color="accent" mat-stroked-button>{{'cancel-btn' | translate}}</button>
+    <button (click)="closeDialog(true)" color="primary" mat-flat-button>{{'ok-btn' | translate}}</button>
 </div>

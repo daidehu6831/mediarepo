@@ -6,6 +6,7 @@ import {BehaviorSubject} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {BusyDialogComponent} from "../../../shared/app-common/busy-dialog/busy-dialog.component";
 import {Dataset} from "../../../shared/app-common/chart/chart.component";
+import { TranslateService } from "@ngx-translate/core";
 
 @Component({
     selector: "app-repository-details-view",
@@ -21,13 +22,21 @@ export class RepositoryDetailsViewComponent implements OnInit, OnChanges, OnDest
     public thumbFolderSize = new BehaviorSubject<string | undefined>(undefined);
     public databaseFileSize = new BehaviorSubject<string | undefined>(undefined);
     public chartData?: Dataset[];
-    public chartLabels = ["Files", "Thumbnails", "Database"];
-    private refreshMetadataInterval?: number;
+    public chartLabels = [''];
+    private refreshMetadataInterval?: any;
 
     constructor(
         private repoService: RepositoryService,
+        private translateService :TranslateService,
         public dialog: MatDialog
     ) {
+        let lable = "core.repository-tab.details-view-size-chart-files";
+        this.translateService.get(lable).subscribe((txt: string) => { lable = txt; });
+        this.chartLabels[0]=lable;
+        this.translateService.get("core.repository-tab.details-view-size-chart-thumbnails").subscribe((txt: string) => { lable = txt; });
+        this.chartLabels.push(lable);
+        this.translateService.get("core.repository-tab.details-view-size-chart-database").subscribe((txt: string) => { lable = txt; });
+        this.chartLabels.push(lable);
     }
 
     public async ngOnInit() {
@@ -46,10 +55,15 @@ export class RepositoryDetailsViewComponent implements OnInit, OnChanges, OnDest
     }
 
     public async closeRepository() {
+        let title = "dlg.closing-repository.title";
+        this.translateService.get(title).subscribe((txt: string) => { title = txt; });
+        let message = "dlg.closing-repository.message";
+        this.translateService.get(message).subscribe((txt: string) => { message = txt; });
+
         let closeDialog = this.dialog.open(BusyDialogComponent, {
             data: {
-                title: "Closing repository",
-                message: new BehaviorSubject("Closing repository...")
+                title: title, 
+                message: new BehaviorSubject(message)
             }
         });
         if (this.repository?.local) {

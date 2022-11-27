@@ -1,8 +1,8 @@
 <button (click)="this.appClick.emit()"
         [matTooltipShowDelay]="1000"
-        [matTooltip]="selectedPreset.toString()"
+        [matTooltip]="selectedPreset.toString() | translate"
         class="sort-button"
         mat-flat-button>
-    <i>Sort: </i>
+    <i>{{'sort-btn-lbe' | translate}}</i>
     <app-sort-preset-item [preset]="this.selectedPreset"></app-sort-preset-item>
 </button>

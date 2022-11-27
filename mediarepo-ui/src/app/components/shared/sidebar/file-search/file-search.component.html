@@ -1,11 +1,14 @@
 <div class="search-tab-inner" fxLayout="column">
     <div id="file-search-input">
         <div class="status-selector">
-            <mat-checkbox (change)="this.setDisplayImported($event)" [checked]="this.displayImported">Imported
+            <mat-checkbox (change)="this.setDisplayImported($event)" [checked]="this.displayImported">
+                {{'shared.repository.status-imported' | translate }}
             </mat-checkbox>
-            <mat-checkbox (change)="this.setDisplayArchived($event)" [checked]="this.displayArchived">Archived
+            <mat-checkbox (change)="this.setDisplayArchived($event)" [checked]="this.displayArchived">
+                {{'shared.repository.status-archived' | translate }}
             </mat-checkbox>
-            <mat-checkbox (change)="this.setDisplayDeleted($event)" [checked]="this.displayDeleted">Deleted
+            <mat-checkbox (change)="this.setDisplayDeleted($event)" [checked]="this.displayDeleted">
+                {{'shared.repository.status-deleted' | translate }}
             </mat-checkbox>
         </div>
         <div class="tag-input-list-and-actions">
@@ -41,12 +44,12 @@
     </div>
 
     <mat-divider fxFlex="1em"></mat-divider>
-    <h3 class="search-result-display">{{this.state.files.value.length}} files found
-        in {{this.searchDuration < 0.1 ? " < 0.1" : this.searchDuration}}
-        seconds</h3>
+    <h3 class="search-result-display">{{this.state.files.value.length}} {{'shared.file-search-sort-result' | translate}}
+        {{this.searchDuration < 0.1 ? " < 0.1" : this.searchDuration}}
+        {{'shared.file-search-sort-result-seconds' | translate}}</h3>
     <mat-divider fxFlex="1em"></mat-divider>
     <div class="tag-list-header" fxFlex="40px">
-        <h2>{{contextTags.length}} Tags</h2>
+        <h2>{{contextTags.length}} {{'shared.file-search-sort-result-tags' | translate}}</h2>
         <mat-divider></mat-divider>
     </div>
 
@@ -67,23 +70,23 @@
 
 <app-context-menu #contextMenu>
     <button (click)="this.copyToClipboard(this.contextMenuTag!.getNormalizedOutput())" *ngIf="this.contextMenuTag"
-            mat-menu-item>Copy
+            mat-menu-item>{{'copy-btn' | translate}}
         "{{contextMenuTag!.getNormalizedOutput()}}"
     </button>
     <button (click)="this.copyToClipboard(this.contextMenuTag!.name)" *ngIf="this.contextMenuTag?.namespace"
-            mat-menu-item>Copy "{{this.contextMenuTag!.name}}"
+            mat-menu-item>{{'copy-btn' | translate}} "{{this.contextMenuTag!.name}}"
     </button>
     <button (click)="this.copyToClipboard(this.contextMenuTag!.namespace!)" *ngIf="this.contextMenuTag?.namespace"
-            mat-menu-item>Copy "{{this.contextMenuTag!.namespace!}}"
+            mat-menu-item>{{'copy-btn' | translate}} "{{this.contextMenuTag!.namespace!}}"
     </button>
 </app-context-menu>
 
 <app-context-menu #contextMenuFilters>
     <button (click)="this.removeFilterExpression(this.contextMenuFilter!)" *ngIf="contextMenuFilter" mat-menu-item>
-        Remove
+        {{'remove-btn' | translate}}
     </button>
     <button (click)="this.removeFilterExpression(this.contextMenuFilter!); this.addFilterToInput(this.contextMenuFilter!)"
             *ngIf="contextMenuFilter"
-            mat-menu-item>Edit
+            mat-menu-item>{{'edit-btn' | translate}}
     </button>
 </app-context-menu>

@@ -34,7 +34,7 @@ import {FlexModule} from "@angular/flex-layout";
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCardModule} from "@angular/material/card";
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -76,7 +76,8 @@ import {MatCardModule} from "@angular/material/card";
         FlexModule,
         ScrollingModule,
         MatProgressSpinnerModule,
-        MatCardModule
+        MatCardModule,
+        TranslateModule
     ]
 })
 export class FileModule {

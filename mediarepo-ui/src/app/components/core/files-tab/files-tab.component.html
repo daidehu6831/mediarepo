@@ -19,7 +19,7 @@
         </app-busy-indicator>
         <app-middle-centered *ngIf="this.metadata && this.metadata.file_count === 0" class="import-prompt">
             <div><h1>There are no files in this repository.</h1></div>
-            <button (click)="this.onImportFiles()" color="primary" mat-flat-button>Import files</button>
+            <button (click)="this.onImportFiles()" color="primary" mat-flat-button>{{'Import-files' | translate}}</button>
         </app-middle-centered>
     </app-drawer-page-content>
 </app-drawer-page>

@@ -11,7 +11,7 @@ import {MatFolder, MatInsertDriveFile} from "@ng-icons/material-icons/baseline";
 import {MatButtonModule} from "@angular/material/button";
 import {FlexModule} from "@angular/flex-layout";
 import {FilterInputComponent} from "./filter-input/filter-input.component";
-
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
     declarations: [
@@ -33,6 +33,7 @@ import {FilterInputComponent} from "./filter-input/filter-input.component";
         NgIconsModule.withIcons({ MatInsertDriveFile, MatFolder }),
         MatButtonModule,
         FlexModule,
+        TranslateModule
     ]
 })
 export class InputModule {

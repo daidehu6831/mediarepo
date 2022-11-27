@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Filters</h1>
+<h1 mat-dialog-title>{{'dlg.file-search-filter.title' | translate}}</h1>
 <div class="filter-dialog-content" mat-dialog-content>
     <div class="filter-dialog-list">
         <mat-list class="mat-filter-dialog-list">
@@ -19,13 +19,13 @@
                       class="filter-input"></app-filter-input>
 </div>
 <div class="dialog-actions" mat-dialog-actions>
-    <button (click)="cancelFilter()" color="accent" mat-stroked-button>Cancel</button>
-    <button (click)="confirmFilter()" color="primary" mat-flat-button>Filter</button>
+    <button (click)="cancelFilter()" color="accent" mat-stroked-button>{{'cancel-btn' | translate }}</button>
+    <button (click)="confirmFilter()" color="primary" mat-flat-button>{{'filter-btn' | translate }}</button>
 </div>
 <app-context-menu #contextMenu>
-    <button (click)="this.removeSelectedFilters()" mat-menu-item>Remove</button>
-    <button (click)="this.createAndFromSelection(true)" mat-menu-item>Convert selection to AND</button>
-    <button (click)="this.createOrFromSelection(true)" mat-menu-item>Convert selection to OR</button>
-    <button (click)="this.createOrFromSelection(false)" mat-menu-item>Copy selection to OR</button>
-    <button (click)="this.createAndFromSelection(false)" mat-menu-item>Copy selection to AND</button>
+    <button (click)="this.removeSelectedFilters()" mat-menu-item>{{'remove-btn' | translate }}</button>
+    <button (click)="this.createAndFromSelection(true)" mat-menu-item>{{'dlg.file-search-filter.menu-convert-selection-to-AND' | translate }}</button>
+    <button (click)="this.createOrFromSelection(true)" mat-menu-item>{{'dlg.file-search-filter.menu-convert-selection-to-OR' | translate }}</button>
+    <button (click)="this.createOrFromSelection(false)" mat-menu-item>{{'dlg.file-search-filter.menu-copy-selection-to-AND' | translate }}</button>
+    <button (click)="this.createAndFromSelection(false)" mat-menu-item>{{'dlg.file-search-filter.menu-copy-selection-to-OR' | translate }}</button>
 </app-context-menu>

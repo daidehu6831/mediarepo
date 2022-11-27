@@ -11,27 +11,27 @@
         <mat-action-list>
             <button (click)="this.openEvent.next(repository)" *ngIf="!this.isSelectedRepository() && repository.local"
                     color="primary"
-                    mat-flat-button>Open
+                    mat-flat-button>{{'open-btn' | translate }}
             </button>
             <button (click)="this.openEvent.next(repository)" *ngIf="!this.isSelectedRepository() && !repository.local"
                     [disabled]="!this.daemonRunning"
-                    color="primary" mat-flat-button>Connect
+                    color="primary" mat-flat-button>{{'connect-btn' | translate }}
             </button>
             <button (click)="this.repoService.closeSelectedRepository()"
                     *ngIf="this.isSelectedRepository() && repository.local" color="primary"
-                    mat-flat-button>Close
+                    mat-flat-button>{{'close--btn' | translate }}
             </button>
             <button (click)="this.repoService.disconnectSelectedRepository()"
                     *ngIf="this.isSelectedRepository() && !repository.local" color="primary"
-                    mat-flat-button>Disconnect
+                    mat-flat-button>{{'disconnect-btn' | translate }}
             </button>
             <button [mat-menu-trigger-for]="menu" class="menu-button" mat-button>
                 <ng-icon name="mat-more-vert"></ng-icon>
             </button>
             <mat-menu #menu="matMenu">
-                <button (click)="openEditRepositoryDialog()" mat-menu-item>Edit</button>
-                <button (click)="removeRepository()" *ngIf="repository.local" mat-menu-item>Delete</button>
-                <button (click)="removeRepository()" *ngIf="!repository.local" mat-menu-item>Remove</button>
+                <button (click)="openEditRepositoryDialog()" mat-menu-item>{{'edit-btn' | translate }}</button>
+                <button (click)="removeRepository()" *ngIf="repository.local" mat-menu-item>{{'delete-btn' | translate }}</button>
+                <button (click)="removeRepository()" *ngIf="!repository.local" mat-menu-item>{{'remove-btn' | translate }}</button>
             </mat-menu>
         </mat-action-list>
     </mat-card>

@@ -27,8 +27,10 @@
     <button (click)="this.fileOpen.emit(fileContextMenu.files[0])"
             *ngIf="fileContextMenu.files.length === 1"
             content-before=""
-            mat-menu-item>Open
+            mat-menu-item>{{'open-btn' | translate}}
     </button>
-    <button (click)="this.regenerateThumbnail(fileContextMenu.files)" mat-menu-item>Regenerate thumbnail</button>
+    <button (click)="this.regenerateThumbnail(fileContextMenu.files)" mat-menu-item>
+        {{'regenerate-thumbnail-btn' | translate}}
+    </button>
 </app-file-context-menu>
 
