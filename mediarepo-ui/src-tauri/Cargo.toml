@@ -10,7 +10,7 @@ edition = "2018"
 build = "src/build.rs"
 
 [build-dependencies]
-tauri-build = { version = "1.0.0-rc.5", features = [] }
+tauri-build = { version = "1.2", features = [] }
 
 [dependencies]
 serde_json = "1.0.79"
@@ -19,8 +19,8 @@ thiserror = "1.0.30"
 typemap_rev = "0.1.5"
 
 [dependencies.tauri]
-version = "1.0.0-rc.6"
-features = ["dialog-all", "path-all", "shell-all"]
+version = "1.2.1"
+features = ["api-all"]
 
 [dependencies.tracing-subscriber]
 version = "0.3.9"
@@ -31,5 +31,10 @@ path = "../../mediarepo-api"
 features = ["tauri-plugin"]
 
 [features]
-default = ["custom-protocol"]
-custom-protocol = ["tauri/custom-protocol"]
+# by default Tauri runs in production mode
+# when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL
+default = [ "custom-protocol" ]
+# this feature is used used for production builds where `devPath` points to the filesystem
+# DO NOT remove this
+custom-protocol = [ "tauri/custom-protocol" ]
+
