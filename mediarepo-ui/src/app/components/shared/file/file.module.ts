@@ -35,6 +35,8 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCardModule} from "@angular/material/card";
 import { TranslateModule } from '@ngx-translate/core';
+import { NgxExtendedPdfViewerModule } from "ngx-extended-pdf-viewer";
+import {PdfViewerComponent} from "./content-viewer/pdf-viewer/pdf-viewer.component";
 
 @NgModule({
     declarations: [
@@ -48,6 +50,7 @@ import { TranslateModule } from '@ngx-translate/core';
         AudioViewerComponent,
         ImageViewerComponent,
         VideoViewerComponent,
+        PdfViewerComponent,
     ],
     exports: [
         FileMultiviewComponent
@@ -77,7 +80,8 @@ import { TranslateModule } from '@ngx-translate/core';
         ScrollingModule,
         MatProgressSpinnerModule,
         MatCardModule,
-        TranslateModule
+        TranslateModule,
+        NgxExtendedPdfViewerModule
     ]
 })
 export class FileModule {

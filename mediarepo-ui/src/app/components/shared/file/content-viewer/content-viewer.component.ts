@@ -15,7 +15,7 @@ import {FileHelper} from "../../../../services/file/file.helper";
 import {LoggingService} from "../../../../services/logging/logging.service";
 import {BusyIndicatorComponent} from "../../app-common/busy-indicator/busy-indicator.component";
 
-type ContentType = "image" | "video" | "audio" | "other";
+type ContentType = "image" | "video" | "audio" | "pdf" | "other";
 
 @Component({
     selector: "app-content-viewer",
@@ -40,7 +40,7 @@ export class ContentViewerComponent implements AfterViewInit, OnChanges, OnDestr
 
     public async ngAfterViewInit() {
         this.contentType = this.getContentType();
-        if (["audio", "video"].includes(this.contentType)) {
+        if (["audio", "video", "pdf"].includes(this.contentType)) {
             await this.loadBlobUrl();
         } else {
             this.contentUrl = this.fileService.buildContentUrl(this.file);
@@ -51,7 +51,7 @@ export class ContentViewerComponent implements AfterViewInit, OnChanges, OnDestr
         if (changes["file"]) {
             this.contentType = this.getContentType();
 
-            if (["audio", "video"].includes(this.contentType) && this.busyIndicator) {
+            if (["audio", "video", "pdf"].includes(this.contentType) && this.busyIndicator) {
                 await this.loadBlobUrl();
             } else {
                 this.contentUrl = this.fileService.buildContentUrl(this.file);
@@ -90,7 +90,7 @@ export class ContentViewerComponent implements AfterViewInit, OnChanges, OnDestr
     private getContentType(): ContentType {
         let mimeParts = this.file.mimeType.split("/");
         const type = mimeParts.shift() ?? "other";
-
+        console.log("getContentType",type);
         switch (type) {
             case "image":
                 return "image";
@@ -99,6 +99,10 @@ export class ContentViewerComponent implements AfterViewInit, OnChanges, OnDestr
             case "audio":
                 return "audio";
             default:
+                switch(this.file.mimeType) {
+                    case "application/pdf":
+                        return "pdf";
+                }
                 return "other";
         }
     }

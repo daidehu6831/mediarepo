@@ -1,6 +1,7 @@
 <app-image-viewer *ngIf="contentType === 'image' && contentUrl" [imageUrl]="contentUrl"></app-image-viewer>
 <app-video-viewer *ngIf="contentType === 'video' && this.blobUrl" [blobUrl]="this.blobUrl!"></app-video-viewer>
 <app-audio-viewer *ngIf="contentType === 'audio' && this.blobUrl" [blobUrl]="this.blobUrl!"></app-audio-viewer>
+<app-pdf-viewer *ngIf="contentType === 'pdf' && this.blobUrl" [blobUrl]="this.blobUrl!"></app-pdf-viewer>
 
 <div *ngIf="contentType === 'other'" class="download-prompt">
     <span>Unsupported content type <b>{{this.file.mimeType}}</b></span>
